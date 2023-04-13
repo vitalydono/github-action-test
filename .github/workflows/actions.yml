@@ -1,12 +1,22 @@
 name: Actions Wokflow
 
 on:
-  schedule:
-    - cron: "0/5 * * * *"
-    - cron: "0/6 * * * *"
+  push:
+    branches:
+      - master
+      - "feature/*"
+
+    tags:
+      - v1.*
+
+    paths:
+      - "**.js"
+  # schedule:
+  #   - cron: "0/5 * * * *"
+  #   - cron: "0/6 * * * *"
   # push:
-  pull_request:
-    types: [closed, assigned, opened, reopened]
+  # pull_request:
+  #   types: [closed, assigned, opened, reopened]
 
 jobs:
   run-github-actions:
